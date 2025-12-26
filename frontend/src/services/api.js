@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+// Use relative URL for Docker/production, or environment variable for development
+const API_BASE_URL = process.env.REACT_APP_API_URL || '/api';
 
 export const getTasks = async () => {
   const response = await axios.get(`${API_BASE_URL}/tasks`);

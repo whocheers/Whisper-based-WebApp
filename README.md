@@ -1,13 +1,15 @@
-# Task Manager Web Application
+# Task Manager Web Application with Whisper Voice-to-Text
 
-A simple full-stack task management application built with React (Material-UI) and Flask (SQLite).
+A full-stack task management application built with React (Material-UI) and Flask (SQLite), featuring OpenAI Whisper integration for voice-to-text task creation.
 
 ## Features
 
 - Add new tasks with title and description
+- **Voice-to-text input** using OpenAI Whisper for task descriptions
 - View all tasks in a clean, responsive interface
 - Delete tasks
 - Persistent storage using SQLite database
+- **Fully Dockerized** for reproducible environments
 
 ## Project Structure
 
@@ -30,6 +32,53 @@ web_app_with_whisper/
 ```
 
 ## Setup Instructions
+
+### Option 1: Docker (Recommended)
+
+**Prerequisites:**
+- Docker Engine 20.10+
+- Docker Compose 1.29+
+
+**Quick Start:**
+
+1. Clone the repository and navigate to the project directory
+
+2. Build and run with docker-compose:
+```bash
+docker-compose up --build
+```
+
+3. Access the application:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+
+**Docker Features:**
+- ✅ Multi-stage builds for optimized image sizes
+- ✅ Automatic Whisper model download at build time
+- ✅ FFmpeg pre-installed for audio processing
+- ✅ Health checks for both services
+- ✅ Persistent database with volume mounts
+- ✅ Production-ready nginx configuration
+
+**Docker Commands:**
+```bash
+# Start services
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+
+# Rebuild after code changes
+docker-compose up --build
+
+# Remove all containers and volumes
+docker-compose down -v
+```
+
+### Option 2: Manual Setup
 
 ### Backend Setup
 
@@ -85,6 +134,7 @@ The frontend will run on `http://localhost:3000`
 | POST | `/api/tasks` | Create a new task | `{title, description}` |
 | DELETE | `/api/tasks/:id` | Delete a task | - |
 | PUT | `/api/tasks/:id` | Update a task | `{completed}` |
+| POST | `/api/transcribe` | Transcribe audio to text | `multipart/form-data` with audio file |
 
 ## Testing the Backend API
 
@@ -103,24 +153,25 @@ curl -X POST http://localhost:5000/api/tasks \
 curl -X DELETE http://localhost:5000/api/tasks/1
 ```
 
-## Future Enhancements
-
-This application is designed to be extended with Whisper voice-to-text functionality for task creation. The modular architecture supports adding:
-- Voice input component
-- Speech-to-text endpoint using Whisper
-- Audio recording functionality
-
 ## Technologies Used
 
 ### Backend
 - **Flask** - Lightweight Python web framework
 - **Flask-CORS** - Cross-Origin Resource Sharing support
 - **SQLite** - Embedded database
+- **OpenAI Whisper** - Speech-to-text model
+- **FFmpeg** - Audio/video processing
 
 ### Frontend
 - **React** - JavaScript library for building user interfaces
 - **Material-UI** - React component library
 - **Axios** - HTTP client for API calls
+- **MediaRecorder API** - Browser audio recording
+
+### DevOps
+- **Docker** - Containerization platform
+- **Docker Compose** - Multi-container orchestration
+- **Nginx** - Web server for production frontend serving
 
 ## License
 
