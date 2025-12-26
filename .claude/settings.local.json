@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(./venv/bin/pip install:*)",
+      "Bash(/Users/deshenghu/Desktop/PhD_thesis_related/job_seeking_related/interview/nccr/web_app_with_whisper/backend/venv/bin/pip install:*)",
+      "Bash(curl:*)",
+      "Bash(npx create-react-app frontend)",
+      "Bash(npm install)",
+      "Bash(/Users/deshenghu/Desktop/PhD_thesis_related/job_seeking_related/interview/nccr/web_app_with_whisper/backend/venv/bin/python:*)",
+      "Bash(conda:*)",
+      "Bash(/Users/deshenghu/Desktop/PhD_thesis_related/job_seeking_related/interview/nccr/web_app_with_whisper/backend/venv/bin/pip list:*)",
+      "Bash(python app.py:*)",
+      "Bash(brew install:*)",
+      "Bash(export PATH=\"/Users/deshenghu/Desktop/PhD_thesis_related/job_seeking_related/interview/nccr/web_app_with_whisper/backend/venv/bin:$PATH\":*)",
+      "Bash(/Users/deshenghu/Desktop/PhD_thesis_related/job_seeking_related/interview/nccr/web_app_with_whisper/backend/venv/bin/ffmpeg:*)",
+      "Bash(ls:*)",
+      "Bash(git config:*)",
+      "Bash(git init:*)"
+    ]
+  }
+}
